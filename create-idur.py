@@ -8,6 +8,13 @@ Depends=[]
 idurDepends=[]
 Conflict=[]
 i=0
+import sys
+from sys import exit
+if len(sys.argv) > 1:
+	if sys.argv[1] == "-v" or sys.argv[1] == "--version":
+		print("v0.1")
+		exit()
+
 print("Welcome! to create idur")
 
 while it:
