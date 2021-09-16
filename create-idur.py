@@ -12,7 +12,7 @@ import sys
 from sys import exit
 if len(sys.argv) > 1:
 	if sys.argv[1] == "-v" or sys.argv[1] == "--version":
-		print("v0.1")
+		print("v0.2")
 		exit()
 
 print("Welcome! to create idur")
@@ -69,7 +69,7 @@ ask=input("do your program need idur depends? (y/n)")
 if ask == "y" or ask == "Y":
 	while iti:
 		while it:
-			idurDepends.append(input("an apt depend: "))
+			idurDepends.append(input("an idur depend: "))
 			if " " in idurDepends[i]:
 				print("Without space")
 			elif "\n" in idurDepends[i]:
@@ -92,7 +92,7 @@ ask=input("conflict with other packages? (y/n)")
 if ask == "y" or ask == "Y":
 	while iti:
 		while it:
-			Conflict.append(input("an apt depend: "))
+			Conflict.append(input("a conflict: "))
 			if " " in Conflict[i]:
 				print("Without space")
 			elif "\n" in Conflict[i]:
