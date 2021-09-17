@@ -20,6 +20,7 @@ def create_idur():
 	Depends=[]
 	idurDepends=[]
 	Conflict=[]
+	License=""
 	i=0
 
 	while it:
@@ -143,6 +144,9 @@ def create_idur():
 			print("error")
 	it=True
 		
+	ask=input("add License Link? (y/n)")
+	if ask == "y" or ask == "Y":
+		License = input("Link License: ")
 	YourName=input("Your Name: ")
 	YourEmail=input("Your Email: ")
 
@@ -157,6 +161,12 @@ def create_idur():
 	Arch=\"""" + ARCH + """\"
 
 	"""
+	
+	if License != "":
+		FILE+="""
+Licence=\"""" + License + """\"
+"""
+	
 	if len(Depends) != 0:
 		FILE += "Depends= ["
 		for ii in range(len(Depends)):
@@ -191,47 +201,47 @@ def create_idur():
 		
 
 	FILE += """
-	Description=\"\"\"
+Description=\"\"\"
 
-	description here
+description here
 
-	\"\"\"
-	"""
+\"\"\"
+"""
 
 	if ARCH == "all":
 		FILE += """
-	Install=\"\"\"
+Install=\"\"\"
 
-	# Install instructions here (bash)
+# Install instructions here (bash)
 
-	\"\"\"
-	"""
+\"\"\"
+"""
 	if ARCH == "x86_64" or ARCH == "both":
 		FILE += """
-	Install64=\"\"\"
+Install64=\"\"\"
 
 	# Install instructions here (bash)
 
-	\"\"\"
-	"""
+\"\"\"
+"""
 	if ARCH == "i386" or ARCH == "both":
 		FILE += """
-	Install32=\"\"\"
+Install32=\"\"\"
 
-	# Install instructions here (bash)
+# Install instructions here (bash)
 
-	\"\"\"
-	"""
+\"\"\"
+"""
 		
 
 
 	FILE += """
-	Remove=\"\"\"
+Remove=\"\"\"
 
-	# Remove instructions here (bash)
+# Remove instructions here (bash)
 
-	\"\"\"
-	"""
+\"\"\"
+"""
 	os.system("clear")
 	print(FILE)
 	ask = input("Good? (Y/n)")
