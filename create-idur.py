@@ -16,8 +16,16 @@ def main():
 		if sys.argv[1] == "-p" or sys.argv[1] == "--create-package":
 			create_idur()
 			exit()
-	see_help():
+	see_help()
 def see_help():
+	print("""
+create-idur <command>
+Use:
+    -r or --create-repo      Create file to detect repos
+    -p or --create-package   Create a package (init)
+    -v or --version          See version
+    -h or --help             See Help
+""")
 	
 
 def create_repo():
