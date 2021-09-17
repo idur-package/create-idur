@@ -120,12 +120,12 @@ def create_idur():
 	while it:
 		ask=input("""architecture:
 
-		all: one method to install with 64bits and 32bits
-		x86_64: just 64bits
-		i386: just 32bits
-		both: one method to 64bits and other to 32bits
+	all: one method to install with 64bits and 32bits
+	x86_64: just 64bits
+	i386: just 32bits
+	both: one method to 64bits and other to 32bits
 
-	What is the architecture? 
+What is the architecture? 
 
 		""")
 		if ask == "all" :
@@ -151,16 +151,16 @@ def create_idur():
 	YourEmail=input("Your Email: ")
 
 	FILE="""
-	Name=\"""" + Name + """\"
-	Version=\"""" + Version + """\"
+Name=\"""" + Name + """\"
+Version=\"""" + Version + """\"
 
 
-	Maintainer=\"""" + YourName + """\"
-	Contact=\"""" + YourEmail + """\"
+Maintainer=\"""" + YourName + """\"
+Contact=\"""" + YourEmail + """\"
 
-	Arch=\"""" + ARCH + """\"
+Arch=\"""" + ARCH + """\"
 
-	"""
+"""
 	
 	if License != "":
 		FILE+="""
