@@ -10,8 +10,30 @@ def main():
 		if sys.argv[1] == "-v" or sys.argv[1] == "--version":
 			print("v0.3")
 			exit()
-	create_idur()
+		if sys.argv[1] == "-r" or sys.argv[1] == "--create-repo":
+			create_repo()
+			exit()
+		if sys.argv[1] == "-p" or sys.argv[1] == "--create-package":
+			create_idur()
+			exit()
+	see_help():
+def see_help():
+	
 
+def create_repo():
+	it=True
+	while it:
+		Name = input("Repo Name: ")
+		if " " in Name:
+			print("Without space")
+		elif "\n" in Name:
+			print("no new lines")
+		elif Name == "":
+			print("write something")
+		else:
+			it=False
+	it=True
+	os.system("echo 'Name=\"" + Name + "\"' > standard.py")
 def create_idur():
 	Name=""
 	Version=""
