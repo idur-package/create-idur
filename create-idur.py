@@ -164,7 +164,7 @@ Arch=\"""" + ARCH + """\"
 	
 	if License != "":
 		FILE+="""
-Licence=\"""" + License + """\"
+License=\"""" + License + """\"
 """
 	
 	if len(Depends) != 0:
