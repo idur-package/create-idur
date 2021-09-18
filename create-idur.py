@@ -81,7 +81,7 @@ def create_idur():
 	if ask == "y" or ask == "Y":
 		while iti:
 			while it:
-				Depends.append(input("an apt depend: "))
+				Depends.append(input("an apt depend (normal = name, recommend = rec/name, suggest = sug/name): "))
 				if " " in Depends[i]:
 					print("Without space")
 				elif "\n" in Depends[i]:
@@ -105,7 +105,7 @@ def create_idur():
 	if ask == "y" or ask == "Y":
 		while iti:
 			while it:
-				idurDepends.append(input("an idur depend: "))
+				idurDepends.append(input("an idur depend (normal = name, recommend = rec/name, suggest = sug/name): ": "))
 				if " " in idurDepends[i]:
 					print("Without space")
 				elif "\n" in idurDepends[i]:
