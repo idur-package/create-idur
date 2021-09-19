@@ -8,7 +8,7 @@ def main():
 	print("Welcome to Create Idur!")
 	if len(sys.argv) > 1:
 		if sys.argv[1] == "-v" or sys.argv[1] == "--version":
-			print("v0.4")
+			print("v0.5")
 			exit()
 		if sys.argv[1] == "-r" or sys.argv[1] == "--create-repo":
 			create_repo()
@@ -105,7 +105,7 @@ def create_idur():
 	if ask == "y" or ask == "Y":
 		while iti:
 			while it:
-				idurDepends.append(input("an idur depend (normal = name, recommend = rec/name, suggest = sug/name): ": "))
+				idurDepends.append(input("an idur depend (normal = name, recommend = rec/name, suggest = sug/name): "))
 				if " " in idurDepends[i]:
 					print("Without space")
 				elif "\n" in idurDepends[i]:
