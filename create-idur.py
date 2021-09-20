@@ -82,9 +82,7 @@ def create_idur():
 		while iti:
 			while it:
 				Depends.append(input("an apt depend (normal = name, recommend = rec/name, suggest = sug/name): "))
-				if " " in Depends[i]:
-					print("Without space")
-				elif "\n" in Depends[i]:
+				if "\n" in Depends[i]:
 					print("no new lines")
 				elif Depends[i] == "":
 					print("write something")
@@ -106,9 +104,7 @@ def create_idur():
 		while iti:
 			while it:
 				idurDepends.append(input("an idur depend (normal = name, recommend = rec/name, suggest = sug/name): "))
-				if " " in idurDepends[i]:
-					print("Without space")
-				elif "\n" in idurDepends[i]:
+				if "\n" in idurDepends[i]:
 					print("no new lines")
 				elif idurDepends[i] == "":
 					print("write something")
@@ -180,10 +176,8 @@ What is the architecture?
 	YourName=input("Your Name: ")
 	YourEmail=input("Your Email: ")
 
-	FILE="""
-Name=\"""" + Name + """\"
+	FILE="""Name=\"""" + Name + """\"
 Version=\"""" + Version + """\"
-
 
 Maintainer=\"""" + YourName + """\"
 Contact=\"""" + YourEmail + """\"
@@ -198,7 +192,7 @@ License=\"""" + License + """\"
 """
 	
 	if len(Depends) != 0:
-		FILE += "Depends= ["
+		FILE += "Depends=["
 		for ii in range(len(Depends)):
 			FILE += "\""
 			FILE += Depends[ii]
@@ -208,7 +202,7 @@ License=\"""" + License + """\"
 		FILE += "]\n"
 		
 	if len(idurDepends) != 0:
-		FILE += "idurDepends= ["
+		FILE += "idurDepends=["
 		for ii in range(len(idurDepends)):
 			FILE += "\""
 			FILE += idurDepends[ii]
@@ -218,7 +212,7 @@ License=\"""" + License + """\"
 		FILE += "]\n"
 		
 	if len(Conflict) != 0:
-		FILE += "Conflict= [\"" + Name + "\", "
+		FILE += "Conflict=[\"" + Name + "\", "
 		for ii in range(len(Conflict)):
 			FILE += "\""
 			FILE += Conflict[ii]
@@ -227,7 +221,7 @@ License=\"""" + License + """\"
 				FILE += ", "
 		FILE += "]\n"
 	else:
-		FILE += "Conflict= [\"" + Name + "\"]"
+		FILE += "Conflict=[\"" + Name + "\"]"
 		
 
 	FILE += """
@@ -250,7 +244,7 @@ Install=\"\"\"
 		FILE += """
 Install64=\"\"\"
 
-	# Install instructions here (bash)
+# Install instructions here (bash)
 
 \"\"\"
 """
