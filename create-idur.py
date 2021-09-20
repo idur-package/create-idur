@@ -8,7 +8,7 @@ def main():
 	print("Welcome to Create Idur!")
 	if len(sys.argv) > 1:
 		if sys.argv[1] == "-v" or sys.argv[1] == "--version":
-			print("v0.5")
+			print("v0.6")
 			exit()
 		if sys.argv[1] == "-r" or sys.argv[1] == "--create-repo":
 			create_repo()
