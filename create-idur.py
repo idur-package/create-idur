@@ -8,7 +8,7 @@ def main():
 	print("Welcome to Create Idur!")
 	if len(sys.argv) > 1:
 		if sys.argv[1] == "-v" or sys.argv[1] == "--version":
-			print("v0.6")
+			print("v0.7")
 			exit()
 		if sys.argv[1] == "-r" or sys.argv[1] == "--create-repo":
 			create_repo()
@@ -170,6 +170,41 @@ What is the architecture?
 			print("error")
 	it=True
 		
+
+	while it:
+		ask=input("""Time:
+		
+	short - less than 30 seconds
+	almost-medium - less than 1 minute
+	medium - 1-2 minutes
+	long - 3-10 minutes
+	extra-long - +11minutes
+	XXL - +1 hour
+
+Aprox? 
+
+		""")
+		if ask == "short" :
+			TIMEE="short"
+			it=False
+		elif ask == "almost-medium" :
+			TIMEE="almost-medium"
+			it=False
+		elif ask == "medium" :
+			TIMEE="medium"
+			it=False
+		elif ask == "long" :
+			TIMEE="long"
+			it=False
+		elif ask == "XXL" :
+			TIMEE="XXL"
+			it=False
+		else:
+			print("error")
+			TIMEE=""
+	it=True
+
+
 	ask=input("add License Link? (y/n)")
 	if ask == "y" or ask == "Y":
 		License = input("Link License: ")
@@ -183,6 +218,8 @@ Maintainer=\"""" + YourName + """\"
 Contact=\"""" + YourEmail + """\"
 
 Arch=\"""" + ARCH + """\"
+
+Time=\"""" + TIMEE + """\"
 
 """
 	
