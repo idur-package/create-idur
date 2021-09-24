@@ -8,7 +8,7 @@ def main():
 	print("Welcome to Create Idur!")
 	if len(sys.argv) > 1:
 		if sys.argv[1] == "-v" or sys.argv[1] == "--version":
-			print("v0.7")
+			print("v0.8")
 			exit()
 		if sys.argv[1] == "-r" or sys.argv[1] == "--create-repo":
 			create_repo()
@@ -239,7 +239,7 @@ License=\"""" + License + """\"
 		FILE += "]\n"
 		
 	if len(idurDepends) != 0:
-		FILE += "idurDepends=["
+		FILE += 'idurDepends=["idur-pkg", "idur-exec", '
 		for ii in range(len(idurDepends)):
 			FILE += "\""
 			FILE += idurDepends[ii]
@@ -247,6 +247,8 @@ License=\"""" + License + """\"
 			if ii != len(idurDepends) -1:
 				FILE += ", "
 		FILE += "]\n"
+	else:
+		FILE += 'idurDepends=["idur-pkg", "idur-exec"]\n'
 		
 	if len(Conflict) != 0:
 		FILE += "Conflict=[\"" + Name + "\", "
@@ -272,24 +274,69 @@ description here
 	if ARCH == "all":
 		FILE += """
 Install=\"\"\"
-
 # Install instructions here (bash)
+
+# Temp Directory
+idur-pkg tmp """ + Name + """
+cd $(idur-pkg dp """ + Name + """)
+
+# Download Files
+idur-pkg download URL
+
+# Copy Files
+idur-pkg copy PATH NEWPATH
+
+# Make Executable (chmod a+x)
+idur-pkg exec PATH
+
+# Remove Temp Directory
+idur-pkg rm-tmp """ + Name + """
 
 \"\"\"
 """
 	if ARCH == "x86_64" or ARCH == "both":
 		FILE += """
 Install64=\"\"\"
-
 # Install instructions here (bash)
+
+# Temp Directory
+idur-pkg tmp """ + Name + """
+cd $(idur-pkg dp """ + Name + """)
+
+# Download Files
+idur-pkg download URL
+
+# Copy Files
+idur-pkg copy PATH NEWPATH
+
+# Make Executable (chmod a+x)
+idur-pkg exec PATH
+
+# Remove Temp Directory
+idur-pkg rm-tmp """ + Name + """
 
 \"\"\"
 """
 	if ARCH == "i386" or ARCH == "both":
 		FILE += """
 Install32=\"\"\"
-
 # Install instructions here (bash)
+
+# Temp Directory
+idur-pkg tmp """ + Name + """
+cd $(idur-pkg dp """ + Name + """)
+
+# Download Files
+idur-pkg download URL
+
+# Copy Files
+idur-pkg copy PATH NEWPATH
+
+# Make Executable (chmod a+x)
+idur-pkg exec PATH
+
+# Remove Temp Directory
+idur-pkg rm-tmp """ + Name + """
 
 \"\"\"
 """
@@ -298,8 +345,13 @@ Install32=\"\"\"
 
 	FILE += """
 Remove=\"\"\"
-
 # Remove instructions here (bash)
+
+# Remove Files and directories
+idur-pkg rm PATHBIN
+idur-pkg rm PATHFILES
+idur-pkg rm PATHDESKTOP
+idur-pkg rm PATHICON
 
 \"\"\"
 """
